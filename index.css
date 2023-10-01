@@ -189,15 +189,14 @@ p {
   max-height: 720px;
 }
 
-@media (max-width: 666px) {
+@media (max-width: 767px) {
   .ev-title {
     display: none;
-  }
+  } 
 
   .spec-ev:not(:first-child) {
     margin-top: 50px;
   }
-  
 }
 
 .image-section {
@@ -251,6 +250,10 @@ p {
   font-size: 14px;
 }
 
+.bottom-sec {
+  margin-bottom: 15px;
+}
+
 .yt {
   position: relative;
   display: block;
@@ -266,4 +269,28 @@ p {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+#count {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.car-color-btn {
+  border: 2px solid rgb(255, 255, 255);
+  height: 40px;
+  width: 40px;
+  color: #ffffff;
+  border-radius: 20px;
+}
+
+.car-color-btn:hover {
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 0 15px #ffffff;
+}
+
+.car-color-btn:not(:last-child) {
+  margin-right: 5px;
 }
