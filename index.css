@@ -2,8 +2,13 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 @font-face {
-  font-family: 'CustomFont';
+  font-family: 'BYDFont';
   src: url('./font/Babylon.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PorscheFont';
+  src: url('./font/911porschav3.ttf') format('truetype');
 }
 
 ::-webkit-scrollbar {
@@ -41,6 +46,14 @@ p, span, a, li, label {
 
 p {
   font-size: 16px;
+}
+
+.byd-text {
+  font-family: 'BYDFont', sans-serif;
+}
+
+.porsche-text {
+  font-family: 'PorscheFont', sans-serif;
 }
 
 .bg-dark {
@@ -177,10 +190,6 @@ p {
 .youtube-button:hover {
   background-color: #FF0000;
   box-shadow: 0 0 10px #FF0000;
-}
-
-.ev-text {
-  font-family: 'CustomFont', sans-serif;
 }
 
 .image-section img {
