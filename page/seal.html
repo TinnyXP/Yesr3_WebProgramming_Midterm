@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BYD Seal</title>
+  <title>BYD - Seal</title>
 
-  <link rel="stylesheet" href="../bootstrap-5.3.2/css/bootstrap.min.css">
-  <script src="../bootstrap-5.3.2/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../index.css">
-  <script src="../index.js"></script>
+  <link rel="stylesheet" href="../../bootstrap-5.3.2/css/bootstrap.min.css">
+  <script src="../../bootstrap-5.3.2/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../../index.css">
+  <script src="../../index.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="#">Promotions</a>
+            <a class="nav-link custom-nav-item" href="/page/news.html">News</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle custom-nav-item" href="#" id="navbarDropdown" role="button"
@@ -40,11 +40,11 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link custom-nav-item" href="#">Solutions</a>
+            <a class="nav-link custom-nav-item" href="/page/contact_us.html">Contact Us</a>
           </li>
         </ul>
-        <button class="btn fw-bold contact-btn" type="submit">
-          <a href="https://www.reverautomotive.com/en/locator/charging-station">
+        <button class="btn fw-bold contact-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a>
             <i class="bi bi-lightning-fill" style="padding-right: 5px;"></i>Charging stations
           </a>
         </button>
@@ -101,7 +101,11 @@
     </div>
     <div class="row mt-1 justify-content-center">
       <div class="col-md-6 text-center">
-        <button class="btn contact-btn" type="submit" style="width: 150px; height: 40px;">ข้อมูลเทคนิค</button>
+        <button class="btn contact-btn" type="submit" style="width: 150px; height: 40px;">
+          <a href="https://www.reverautomotive.com/model/seal/tech-spec" target="_blank">
+            <i class="bi bi-card-text" style="padding-right: 5px;"></i>ข้อมูลเทคนิค
+          </a>
+        </button>
       </div>
     </div>
   </section>
@@ -115,6 +119,7 @@
           <h3>7.5 Sec</h3>
           <p>0-100 km/h</p>
           <p>ACCELERATION</p>
+          <h4 class="distance">510 km</h4>
         </div>
       </div>
       <div class="col-md-4 text-center spec-ev">
@@ -124,6 +129,7 @@
           <h3>5.9 Sec</h3>
           <p>0-100 km/h</p>
           <p>ACCELERATION</p>
+          <h4 class="distance">650 km</h4>
         </div>
       </div>
       <div class="col-md-4 text-center spec-ev">
@@ -133,6 +139,7 @@
           <h3>3.8 Sec</h3>
           <p>0-100 km/h</p>
           <p>ACCELERATION</p>
+          <h4 class="distance">580 km</h4>
         </div>
       </div>
     </div>
@@ -173,6 +180,33 @@
         <button class="btn car-color-btn" style="background-color: rgb(12,11,14);" onclick="changeImageSeal(1)"></button>
         <button class="btn car-color-btn" style="background-color: rgb(42,65,89);" onclick="changeImageSeal(2)"></button>
         <button class="btn car-color-btn" style="background-color: rgb(90,117,148);" onclick="changeImageSeal(3)"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin-top: 100px;">
+      <div class="modal-content"
+        style="background-color: rgba(0, 0, 0, 0.75); backdrop-filter: blur(5px); border-width: 1px; border: 2px solid rgb(73, 73, 73);">
+        <div class="modal-header" style="border-color: rgba(112, 112, 112, 0.5);">
+          <h3 class="modal-title" id="exampleModalLabel" style="color: rgb(255, 255, 255);">Warning</h3>
+          <a type="button" btn-close-custom data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg" style="color: white; font-size: 20px;"></i>
+          </a>
+        </div>
+        <div class="modal-body" style="color: rgb(255, 255, 255);">
+          When this page is gone This will change to another website page. Do you want to go out and visit another
+          website?
+        </div>
+        <div class="modal-footer" style="border-color: rgba(112, 112, 112, 0.5);">
+          <button type="button" class="btn btn-subtle" data-bs-dismiss="modal"
+            style="color: rgb(255, 88, 88);">Cancel</button>
+          <button type="button" class="btn btn-primary">
+            <a href="https://www.reverautomotive.com/en/locator/charging-station">
+              Confirm
+            </a>
+          </button>
+        </div>
       </div>
     </div>
   </section>

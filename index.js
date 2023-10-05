@@ -1,5 +1,5 @@
 // Func cant press right click
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('contextmenu', event => event.preventDefault());
 
 // Func Scroll to Top
 let mybutton = document.getElementById("topBtn");
@@ -20,7 +20,6 @@ function topFunction() {
 }
 
 // Start Func Change EV Color
-
 function changeImageSeal(index) {
   const images = [
     ['/src/Seal_Color/seal-horizon-white.png', 'Horizon white'],
@@ -31,9 +30,17 @@ function changeImageSeal(index) {
 
   const image = document.getElementById("image");
   const name = document.getElementById("name");
-  image.src = images[index][0];
-  name.textContent = images[index][1];
-};
+  image.classList.add("fade-out");
+  setTimeout(() => {
+    image.src = images[index][0];
+    name.textContent = images[index][1];
+    image.classList.remove("fade-out");
+    image.classList.add("fade-in");
+    setTimeout(() => {
+      image.classList.remove("fade-in");
+    }, 300);
+  }, 300);
+}
 
 function changeImageAutto(index) {
   const images = [
@@ -46,8 +53,16 @@ function changeImageAutto(index) {
 
   const image = document.getElementById("image");
   const name = document.getElementById("name");
-  image.src = images[index][0];
-  name.textContent = images[index][1];
+  image.classList.add("fade-out");
+  setTimeout(() => {
+    image.src = images[index][0];
+    name.textContent = images[index][1];
+    image.classList.remove("fade-out");
+    image.classList.add("fade-in");
+    setTimeout(() => {
+      image.classList.remove("fade-in");
+    }, 300);
+  }, 300);
 }
 
 function changeDouST(index) {
@@ -60,8 +75,16 @@ function changeDouST(index) {
 
   const image = document.getElementById("imageST");
   const name = document.getElementById("nameST");
-  image.src = images[index][0];
-  name.textContent = images[index][1];
+  image.classList.add("fade-out");
+  setTimeout(() => {
+    image.src = images[index][0];
+    name.textContent = images[index][1];
+    image.classList.remove("fade-out");
+    image.classList.add("fade-in");
+    setTimeout(() => {
+      image.classList.remove("fade-in");
+    }, 300);
+  }, 300);
 }
 
 function changeDouEx(index) {
@@ -74,8 +97,94 @@ function changeDouEx(index) {
 
   const image = document.getElementById("imageEx");
   const name = document.getElementById("nameEx");
-  image.src = images[index][0];
-  name.textContent = images[index][1];
+  image.classList.add("fade-out");
+  setTimeout(() => {
+    image.src = images[index][0];
+    name.textContent = images[index][1];
+    image.classList.remove("fade-out");
+    image.classList.add("fade-in");
+    setTimeout(() => {
+      image.classList.remove("fade-in");
+    }, 300);
+  }, 300);
 }
 
+
+const UNIT_PRICE = 4.2; // ค่าคงที่สำหรับค่าไฟต่อหน่วย
+
+function calculateElectricityUsage(distance, batteryCapacity) {
+  return (distance / 100) * batteryCapacity;
+}
+
+function calculateTotalCost(distance, batteryCapacity) {
+  const electricityUsage = calculateElectricityUsage(distance, batteryCapacity);
+  return electricityUsage * UNIT_PRICE;
+}
 // End Func Change EV Color
+
+// Start Function Cal EV Charge Cost
+document.addEventListener('DOMContentLoaded', function() {
+  const range = document.getElementById('evRangeSlider');
+  const output = document.getElementById('kiloMeter');
+  const cost = document.getElementById('cost');
+
+  range.addEventListener('input', function() {
+    const value = parseInt(range.value * 50).toLocaleString();
+    output.textContent = value;
+    const electricalQuantity = (value / 82.5).toFixed(2);
+    const costValue = (electricalQuantity * 4.2).toLocaleString();
+    cost.textContent = costValue;
+  });
+});
+// End Function Cal EV Charge Cost
+
+// start hover glow effect
+
+console.clear();
+
+const cardsContainer = document.querySelector(".cards");
+const cardsContainerInner = document.querySelector(".cards__inner");
+const cards = Array.from(document.querySelectorAll(".card"));
+const overlay = document.querySelector(".overlay");
+
+const applyOverlayMask = (e) => {
+  const overlayEl = e.currentTarget;
+  const x = e.pageX - cardsContainer.offsetLeft;
+  const y = e.pageY - cardsContainer.offsetTop;
+
+  overlayEl.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
+};
+
+const createOverlayCta = (overlayCard, ctaEl) => {
+  const overlayCta = document.createElement("div");
+  overlayCta.classList.add("cta");
+  overlayCta.textContent = ctaEl.textContent;
+  overlayCta.setAttribute("aria-hidden", true);
+  overlayCard.append(overlayCta);
+};
+
+const observer = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    const cardIndex = cards.indexOf(entry.target);
+    let width = entry.borderBoxSize[0].inlineSize;
+    let height = entry.borderBoxSize[0].blockSize;
+
+    if (cardIndex >= 0) {
+      overlay.children[cardIndex].style.width = `${width}px`;
+      overlay.children[cardIndex].style.height = `${height}px`;
+    }
+  });
+});
+
+const initOverlayCard = (cardEl) => {
+  const overlayCard = document.createElement("div");
+  overlayCard.classList.add("card");
+  createOverlayCta(overlayCard, cardEl.lastElementChild);
+  overlay.append(overlayCard);
+  observer.observe(cardEl);
+};
+
+cards.forEach(initOverlayCard);
+document.body.addEventListener("pointermove", applyOverlayMask);
+
+// end hover glow effect
